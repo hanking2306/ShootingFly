@@ -7,7 +7,6 @@ cc.Class({
         homeScreen: cc.Node,
         settingScreen: cc.Node,
         hintScreen: cc.Node,
-        chooseLevel: cc.Node,
     },
 
     onLoad () {
@@ -19,35 +18,19 @@ cc.Class({
             case 'home':{
                 this.homeScreen.active = true;
                 this.settingScreen.active = false;
-                this.chooseLevel.active = false;
                 this.hintScreen.active = false;
                 break;
             }
             case 'setting':{
                 this.settingScreen.active = true;
                 this.homeScreen.active = false;
-                this.chooseLevel.active = false;
                 this.hintScreen.active = false;
                 break;
             }
             case 'hint':{
-                this.chooseLevel.active = false;
                 this.homeScreen.active = false;
                 this.settingScreen.active = false;
                 this.hintScreen.active = true;
-                break;
-            }
-
-            // case 'level1':{
-            //     cc.director.loadScene('Level 1');
-            //     break;
-            // }
-
-            case 'chooseLevel':{
-                this.chooseLevel.active = true;
-                this.homeScreen.active = false;
-                this.settingScreen.active = false;
-                this.hintScreen.active = false;
                 break;
             }
         }

@@ -1,5 +1,3 @@
-const mEmitter = require("Emitter");
-
 cc.Class({
     extends: cc.Component,
 
@@ -14,36 +12,33 @@ cc.Class({
     },
 
     onLoad () {
-        mEmitter.instance.registerEvent('getSpace', this.onGetSpace.bind(this));
         this.homeButton.node.on('click', this.goToHome.bind(this));
         this.level2Button.node.on('click', this.goToLevel2, this);
     },
 
-    onGetSpace(index){
-        this.index = index;
-        let player = cc.instantiate(this.player[this.index]);
-        player.x = 120;
-        player.y = -350;
-        player.width = 300;
-        player.height = 300;
-        this.node.addChild(player);
+    setIndex(value){
+        this.index = value;
     },
 
     goToHome(){
-        this.node.getChildByName(this.player[this.index].name).destroy();
-        mEmitter.instance.emit('changeScreen', 'home');
+        cc.director.loadScene('Menu');
     },
     
     goToLevel2(){
         cc.tween(this.node.getChildByName(this.player[this.index].name))
             .to(0.5, {angle: 30})
             .to(0.5, {scale: 0.4})
-            .to(0.5, {position: cc.v2(this.level2Button.node.x, this.level2Button.node.y + 20)})
+            .to(1, {position: cc.v2(this.level2Button.node.x, this.level2Button.node.y)})
             .start();
     },
 
     start () {
-
+        let player = cc.instantiate(this.player[this.index]);
+        player.x = 120;
+        player.y = -350;
+        player.width = 300;
+        player.height = 300;
+        this.node.addChild(player);
     },
 
     // update (dt) {},
