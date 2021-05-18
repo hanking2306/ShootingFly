@@ -19,16 +19,18 @@ cc.Class({
         }
     },
 
+
+
+    onLoad () {
+        let manager = cc.director.getCollisionManager();
+        manager.enabled = true;
+        manager.enabledDebugDraw = true;
+    },
+
+    
     setIndex(value){
         this.index = value;
     },
-
-    onLoad () {
-        
-    },
-
-    
-    
 
     start () {
         cc.log(this.index);

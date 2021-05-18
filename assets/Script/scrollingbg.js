@@ -14,7 +14,6 @@ cc.Class({
     properties: {
         bg1: cc.Node,
         bg2: cc.Node,
-        button: cc.Node,
     },
 
     onLoad () {
@@ -34,6 +33,5 @@ cc.Class({
         if(this.bg2.y <= -1280) {
             this.bg2.y = 1280;
         }
-        this.button.angle += 200 * dt;
     },
 });
