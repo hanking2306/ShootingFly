@@ -27,7 +27,6 @@ cc.Class({
 
     onCollisionEnter(other, self) {
         if (other.node.group === 'enemy') {
-            cc.log('ban cmm');
             Emitter.instance.emit('remove', this);
         }
     }

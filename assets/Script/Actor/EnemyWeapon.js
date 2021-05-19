@@ -8,6 +8,25 @@
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
+// cc.Class({
+//     extends: cc.Component,
+
+//     properties: {
+//         bullet: {
+//             default: null,
+//             type: cc.Prefab
+//         },
+//         interval: 0.1
+//     },
+//     onEnable() {
+//         this.schedule(this.fire, this.interval);
+//     },
+//     fire() {
+//         let newBullet = cc.instantiate(this.bullet);
+//         this.node.addChild(newBullet);
+//     }
+//     // update (dt) {},
+// });
 cc.Class({
     extends: cc.Component,
 
@@ -16,14 +35,36 @@ cc.Class({
             default: null,
             type: cc.Prefab
         },
-        interval: 0.1
+        interval: 2
     },
+
+    // LIFE-CYCLE CALLBACKS:
+
+    // onLoad () {},
+
+    start() {
+
+    },
+
     onEnable() {
         this.schedule(this.fire, this.interval);
     },
+
+    onDisable() {
+        this.unschedule(this.fire);
+    },
+
     fire() {
-        let newBullet = cc.instantiate(this.bullet);
-        this.node.addChild(newBullet);
-    }
+        let leftBulletPos = this.node.convertToWorldSpaceAR(new cc.Vec2(0, 0));
+        this.add(leftBulletPos);
+    },
+
+    add(bulletPos){
+        let bulletNode = cc.instantiate(this.bullet);
+        bulletNode.active = true;
+        bulletPos.subSelf(cc.Canvas.instance.node.position);
+        bulletNode.position = bulletPos;
+        bulletNode.parent = cc.Canvas.instance.node;
+    },
     // update (dt) {},
 });

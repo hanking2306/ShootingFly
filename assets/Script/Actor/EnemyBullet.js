@@ -11,11 +11,34 @@ cc.Class({
 
     // onLoad () {},
 
-    start () {
-    
+    start() {
+
     },
 
-    update (dt) {   
-        this.node.y += this.speed.y * dt;
+    onEnable() {
+
     },
+    onCollisionEnter(other, self) {
+        if (other.node.group === 'player') {
+            this.node.destroy();
+        }
+    },
+    update(dt) {
+        let bulletPos = this.node.position;
+        bulletPos.addSelf(this.speed.mul(dt));
+
+        let screenSize = cc.Canvas.instance.node.getContentSize();
+        let top = screenSize.height >> 1;
+        let bottom = -top;
+        let right = screenSize.width >> 1;
+        let left = -right;
+
+        let outScreen = bulletPos.x < left || bulletPos.x > right || bulletPos.y < bottom || bulletPos.y > top;
+        if (outScreen) {
+            this.node.destroy();
+            return;
+        }
+
+        this.node.position = bulletPos;
+    }
 });
