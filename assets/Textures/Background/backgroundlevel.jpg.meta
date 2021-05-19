@@ -1,6 +1,6 @@
 {
   "ver": "2.3.3",
-  "uuid": "ed70a092-5624-4747-ab74-89cc8e99fad8",
+  "uuid": "ec6a4f43-eb35-4699-82f5-bef7030b8e18",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -9,10 +9,10 @@
   "packable": true,
   "platformSettings": {},
   "subMetas": {
-    "—Pngtree—round button_1681202_03": {
+    "backgroundlevel": {
       "ver": "1.0.4",
-      "uuid": "95691c5f-d50a-495d-a9d8-c2a78d2b6735",
-      "rawTextureUuid": "ed70a092-5624-4747-ab74-89cc8e99fad8",
+      "uuid": "73d4823f-008d-40f9-ade6-e774580d932d",
+      "rawTextureUuid": "ec6a4f43-eb35-4699-82f5-bef7030b8e18",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
@@ -20,10 +20,10 @@
       "offsetY": 0,
       "trimX": 0,
       "trimY": 0,
-      "width": 311,
-      "height": 311,
-      "rawWidth": 311,
-      "rawHeight": 311,
+      "width": 640,
+      "height": 1136,
+      "rawWidth": 640,
+      "rawHeight": 1136,
       "borderTop": 0,
       "borderBottom": 0,
       "borderLeft": 0,

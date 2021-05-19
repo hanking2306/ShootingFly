@@ -7,6 +7,7 @@ cc.Class({
         homeScreen: cc.Node,
         settingScreen: cc.Node,
         introductionScreen: cc.Node,
+        gameOverScreen: cc.Node,
     },
 
     onLoad () {
@@ -19,18 +20,28 @@ cc.Class({
                 this.homeScreen.active = true;
                 this.settingScreen.active = false;
                 this.introductionScreen.active = false;
+                this.gameOverScreen.active = false;
                 break;
             }
             case 'setting':{
                 this.settingScreen.active = true;
                 this.homeScreen.active = false;
                 this.introductionScreen.active = false;
+                this.gameOverScreen.active = false;
                 break;
             }
             case 'introduction':{
+                this.introductionScreen.active = true;
                 this.homeScreen.active = false;
                 this.settingScreen.active = false;
-                this.introductionScreen.active = true;
+                this.gameOverScreen.active = false;
+                break;
+            }
+            case 'gameover':{
+                this.gameOverScreen.active = true;
+                this.introductionScreen.active = false;
+                this.homeScreen.active = false;
+                this.settingScreen.active = false;
                 break;
             }
         }

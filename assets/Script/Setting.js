@@ -50,8 +50,8 @@ cc.Class({
             cc.tween(toggleMS)
                 .to(0.3, { position: cc.v2(-45, 0) })
                 .call(() => {
-                    onMS.node.active = true;
                     offMS.node.active = false;
+                    onMS.node.active = true;
                 })
                 .start();
                 btn.node.children[0].getComponent(cc.Sprite).spriteFrame = onSprite;

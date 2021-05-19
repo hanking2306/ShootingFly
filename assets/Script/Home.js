@@ -20,6 +20,10 @@ cc.Class({
         this.goButton.node.on('click', this.goToLevel.bind(this));
     },
 
+    setIndex(value) {
+        this.index = value;
+    },
+
     goToSetting() {
         mEmitter.instance.emit('changeScreen', 'setting');
     },
@@ -33,6 +37,7 @@ cc.Class({
     },
 
     goToLevel() {
+        this.goButton.interactable = false;
         this.pageSpace.node.children[1].active = false;
         this.settingButton.node.runAction(cc.moveBy(1, cc.v2(-600, 0)));
         this.introButton.node.runAction(cc.moveBy(1, cc.v2(600, 0)));
@@ -59,10 +64,11 @@ cc.Class({
     },
 
     start() {
-
+        // this.pageSpace.scrollToPage = this.index;
+        this.pageSpace.setCurrentPageIndex = this.index;
     },
 
     update(dt) {
-
+        
     },
 });
