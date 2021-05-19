@@ -27,7 +27,7 @@ cc.Class({
 
     update (dt) {
         if(this.atkType == AttackType.Range) {
-            
+
         } else if (this.atkType == AttackType.Melee) {
 
         }
