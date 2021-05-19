@@ -27,11 +27,7 @@ cc.Class({
         
     },
 
-    
-    
-
     start () {
-        cc.log(this.index);
         let player = cc.instantiate(this.player[this.index]);
         player.width = 100;
         player.height = 100;

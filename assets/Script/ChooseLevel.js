@@ -1,49 +1,49 @@
-const mEmitter = require("Emitter");
+const mEmitter = require("./Emitter");
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
         homeButton: cc.Button,
-        player: {
-            default: [],
-            type: cc.Prefab,
-        },
+        player: cc.Node,
+        atlas: cc.SpriteAtlas,
         level2Button: cc.Button,
         index: 0,
     },
 
-    onLoad () {
-        mEmitter.instance.registerEvent('getSpace', this.onGetSpace.bind(this));
+    onLoad() {
         this.homeButton.node.on('click', this.goToHome.bind(this));
         this.level2Button.node.on('click', this.goToLevel2, this);
     },
 
-    onGetSpace(index){
-        this.index = index;
-        let player = cc.instantiate(this.player[this.index]);
-        player.x = 120;
-        player.y = -350;
-        player.width = 300;
-        player.height = 300;
-        this.node.addChild(player);
+    setIndex(value) {
+        this.index = value;
     },
 
-    goToHome(){
-        this.node.getChildByName(this.player[this.index].name).destroy();
-        mEmitter.instance.emit('changeScreen', 'home');
+    goToHome() {
+        cc.director.loadScene('Menu', (() => {
+            mEmitter.instance.emit('changeScreen', 'home');
+        }));
     },
-    
-    goToLevel2(){
-        cc.tween(this.node.getChildByName(this.player[this.index].name))
-            .to(0.5, {angle: 30})
-            .to(0.5, {scale: 0.4})
-            .to(0.5, {position: cc.v2(this.level2Button.node.x, this.level2Button.node.y + 20)})
+
+    goToLevel2() {
+        this.player.runAction(cc.sequence(
+            cc.rotateTo(0.5, 335),
+            cc.spawn(
+                cc.scaleTo(1, 0.3),
+                cc.moveTo(1, cc.v2(this.level2Button.node.x, this.level2Button.node.y))
+            )
+        ));
+    },
+
+    start() {
+        this.player.getComponent(cc.Sprite).spriteFrame = this.atlas.getSpriteFrame('space' + this.index);
+        this.player.y = 1000;
+        cc.tween(this.player)
+            .to(0.1, { angle: 180 })
+            .to(2, { position: cc.v2(120, -350) })
+            .to(1.5, { angle: 360 })
             .start();
-    },
-
-    start () {
-
     },
 
     // update (dt) {},
