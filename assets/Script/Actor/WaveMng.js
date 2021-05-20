@@ -7,7 +7,10 @@ cc.Class({
         _content: null,
         _waveIndex: 1,
         _enemyCount: 0,
-        enemy_prefab: cc.Prefab,
+        enemy_prefab: {
+            default: [],
+            type: cc.Prefab
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -32,17 +35,23 @@ cc.Class({
         this.createAWave();
     },
     createAWave(){
-        cc.log(this._content[this._waveIndex]);
-        let lv1 = this._content[this._waveIndex].content.map(x => x);
+        let lv = this._content[this._waveIndex].content.map(x => x);
         let lv_col = this._content[this._waveIndex].col;
-        for(let i = 0; i < lv1.length; i++) {
+        for(let i = 0; i < lv.length; i++) {
             let col = i % lv_col;
             let row = Math.floor(i / lv_col);
-            if(lv1[i] == '1'){
+            if(lv[i] == '1'){
                 this._enemyCount++;
-                let newEnemy = cc.instantiate(this.enemy_prefab);
+                let newEnemy = cc.instantiate(this.enemy_prefab[0]);
                 let timeInterval = this.getRandom(1, 20);
                 newEnemy.getChildByName('weapon').getComponent('EnemyWeapon').interval = timeInterval;
+                let newX = (col * 50) - (50)*lv_col/2+25;
+                let newY = 200 + (50 * row);
+                newEnemy.setPosition(newX, newY);
+                this.node.addChild(newEnemy);
+            } else if(lv[i] == '2') {
+                this._enemyCount++;
+                let newEnemy = cc.instantiate(this.enemy_prefab[1]);
                 let newX = (col * 50) - (50)*lv_col/2+25;
                 let newY = 200 + (50 * row);
                 newEnemy.setPosition(newX, newY);

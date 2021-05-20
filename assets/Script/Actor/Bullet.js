@@ -6,7 +6,7 @@ cc.Class({
         speed: {
             default: cc.Vec2.ZERO
         },
-
+        damage: 0,
         // sound: {
         //     default: null,
         //     url: cc.AudioClip

@@ -153,7 +153,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 345.54413610999103
+      "z": 381.1485170327446
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -771,9 +771,14 @@
     "_content": null,
     "_waveIndex": 0,
     "_enemyCount": null,
-    "enemy_prefab": {
-      "__uuid__": "3752701d-5e4f-40fa-937b-f0619e651237"
-    },
+    "enemy_prefab": [
+      {
+        "__uuid__": "3752701d-5e4f-40fa-937b-f0619e651237"
+      },
+      {
+        "__uuid__": "ee8f3c2c-82dd-4aac-846c-2090a090aa1b"
+      }
+    ],
     "_id": "dcYGdYyppPEJ+XYb6bwnxf"
   },
   {
@@ -978,7 +983,7 @@
     "_id": "0besOICW5IW4v6Sq7pxALe"
   },
   {
-    "__type__": "cc.BoxCollider",
+    "__type__": "cc.PolygonCollider",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -991,12 +996,59 @@
       "x": 0,
       "y": 0
     },
-    "_size": {
-      "__type__": "cc.Size",
-      "width": 394,
-      "height": 420
-    },
-    "_id": "76H4BGhkpCmL/FCrGKsVoZ"
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -176.2,
+        "y": -199.2
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 173.6,
+        "y": -203.1
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 195,
+        "y": 0
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 150,
+        "y": 125
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 96.3,
+        "y": 183.7
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 37.8,
+        "y": 210.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -37,
+        "y": 211.3
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -90.2,
+        "y": 191.6
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -150,
+        "y": 125
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -195,
+        "y": 0
+      }
+    ],
+    "_id": "10ZUdGjrpJoZgklsDd3k9M"
   },
   {
     "__type__": "cc.PrefabInfo",

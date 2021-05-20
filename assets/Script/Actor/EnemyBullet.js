@@ -14,16 +14,7 @@ cc.Class({
     start() {
 
     },
-
-    onEnable() {
-
-    },
-    onCollisionEnter(other, self) {
-        if (other.node.group === 'player') {
-            this.node.destroy();
-            other.node.destroy();
-        }
-    },
+    
     update(dt) {
         let bulletPos = this.node.position;
         bulletPos.addSelf(this.speed.mul(dt));

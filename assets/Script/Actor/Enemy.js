@@ -9,20 +9,23 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-
-    },
-
-    start() {
-
+        
     },
 
     onCollisionEnter(other, self) {
-        if (other.node.group === 'player_bullet') {
+        if (other.node.group === 'player') {
+            this.hitPoint -= other.node.getComponent('Bullet').damage;
+        }
+    },
+
+    die() {
+        if(this.hitPoint <= 0) {
             Emitter.instance.emit('enemy_destroy');
             this.node.destroy();
         }
     },
-    update(dt) {
 
+    update(dt) {
+        this.die();
     },
 });
