@@ -53,10 +53,13 @@ cc.Class({
     onDisable() {
         this.unschedule(this.fire);
     },
-
+    getRandom(min, max) {
+        return Math.random() * (max - min) + min;
+    },
     fire() {
-        let leftBulletPos = this.node.convertToWorldSpaceAR(new cc.Vec2(0, 0));
-        this.add(leftBulletPos);
+        let bulletPos = this.node.convertToWorldSpaceAR(new cc.Vec2(0, 0));
+        this.add(bulletPos);
+        this.interval = this.getRandom(1, 20);
     },
 
     add(bulletPos){

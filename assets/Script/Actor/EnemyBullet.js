@@ -21,6 +21,7 @@ cc.Class({
     onCollisionEnter(other, self) {
         if (other.node.group === 'player') {
             this.node.destroy();
+            other.node.destroy();
         }
     },
     update(dt) {

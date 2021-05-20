@@ -18,7 +18,6 @@ cc.Class({
     onLoad() {
         this._tmpPos = this.node.position;
         cc.Canvas.instance.node.on(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
-
         cc.Canvas.instance.node.on(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this);
     },
     onTouchMove(event) {
@@ -46,4 +45,7 @@ cc.Class({
         this.node.x = cc.misc.clampf(this.node.x, -screen.width / 2, screen.width / 2);
         this.node.y = cc.misc.clampf(this.node.y, -screen.height / 2, screen.height / 2);
     },
+    onDestroy() {
+        
+    }
 });

@@ -1,3 +1,4 @@
+const Emitter = require('Emitter');
 cc.Class({
     extends: cc.Component,
 
@@ -17,6 +18,7 @@ cc.Class({
 
     onCollisionEnter(other, self) {
         if (other.node.group === 'player_bullet') {
+            Emitter.instance.emit('enemy_destroy');
             this.node.destroy();
         }
     },
