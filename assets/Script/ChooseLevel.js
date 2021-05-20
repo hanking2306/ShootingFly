@@ -10,6 +10,9 @@ cc.Class({
         level1Button: cc.Button,
         level2Button: cc.Button,
         level3Button: cc.Button,
+        hintButton: cc.Button,
+        hintText: cc.Node,
+        offhintText: cc.Button,
         index: 0,
         level: 0,
         isLock: true,
@@ -17,9 +20,18 @@ cc.Class({
 
     onLoad() {
         this.homeButton.node.on('click', this.goToHome.bind(this));
+        this.hintButton.node.on('click', this.showHint, this);
+        this.offhintText.node.on('click', this.offHint, this);
         this.level1Button.node.on('click', this.goToLevel1, this);
         this.level2Button.node.on('click', this.goToLevel2, this);
         this.level3Button.node.on('click', this.goToLevel3, this);
+        cc.tween(this.hintButton.node)
+            .repeatForever(
+                cc.tween(this.hintButton.node)
+                    .to(0.2, { angle: -20 })
+                    .to(0.2, { angle: 20 })
+            )   
+            .start()
     },
 
     setIndex(value) {
@@ -32,6 +44,17 @@ cc.Class({
             let getIndex = cc.director.getScene().getChildByName('Canvas').getChildByName('HomeNode').getComponent('Home');
             getIndex.setIndex(this.index);
         }));
+    },
+
+    showHint(){
+        this.hintText.runAction(cc.spawn(
+            cc.moveTo(1, cc.v2(0, 0)),
+            cc.scaleTo(1, 1)
+        ));
+    },
+
+    offHint(){
+        this.hintText.runAction(cc.scaleTo(0.2, 1, 0));
     },
 
     goToLevel1() {

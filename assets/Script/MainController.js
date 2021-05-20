@@ -6,7 +6,7 @@ cc.Class({
     properties: {
         homeScreen: cc.Node,
         settingScreen: cc.Node,
-        introductionScreen: cc.Node,
+        intentScreen: cc.Node,
         gameOverScreen: cc.Node,
     },
 
@@ -19,19 +19,19 @@ cc.Class({
             case 'home':{
                 this.homeScreen.active = true;
                 this.settingScreen.active = false;
-                this.introductionScreen.active = false;
+                this.intentScreen.active = false;
                 this.gameOverScreen.active = false;
                 break;
             }
             case 'setting':{
                 this.settingScreen.active = true;
                 this.homeScreen.active = false;
-                this.introductionScreen.active = false;
+                this.intentScreen.active = false;
                 this.gameOverScreen.active = false;
                 break;
             }
-            case 'introduction':{
-                this.introductionScreen.active = true;
+            case 'intent':{
+                this.intentScreen.active = true;
                 this.homeScreen.active = false;
                 this.settingScreen.active = false;
                 this.gameOverScreen.active = false;
@@ -39,7 +39,7 @@ cc.Class({
             }
             case 'gameover':{
                 this.gameOverScreen.active = true;
-                this.introductionScreen.active = false;
+                this.intentScreen.active = false;
                 this.homeScreen.active = false;
                 this.settingScreen.active = false;
                 break;

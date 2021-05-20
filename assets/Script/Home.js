@@ -9,14 +9,14 @@ cc.Class({
         bg2: cc.Node,
         pageSpace: cc.PageView,
         settingButton: cc.Button,
-        introButton: cc.Button,
+        intentButton: cc.Button,
         goButton: cc.Button,
         index: 0,
     },
 
     onLoad() {
         this.settingButton.node.on('click', this.goToSetting.bind(this));
-        this.introButton.node.on('click', this.goToIntroduction.bind(this));
+        this.intentButton.node.on('click', this.goToIntent.bind(this));
         this.goButton.node.on('click', this.goToLevel.bind(this));
     },
 
@@ -28,8 +28,8 @@ cc.Class({
         mEmitter.instance.emit('changeScreen', 'setting');
     },
 
-    goToIntroduction() {
-        mEmitter.instance.emit('changeScreen', 'introduction');
+    goToIntent() {
+        mEmitter.instance.emit('changeScreen', 'intent');
     },
 
     dashSpcace(evt) {
@@ -40,7 +40,7 @@ cc.Class({
         this.goButton.interactable = false;
         this.pageSpace.node.children[1].active = false;
         this.settingButton.node.runAction(cc.moveBy(1, cc.v2(-600, 0)));
-        this.introButton.node.runAction(cc.moveBy(1, cc.v2(600, 0)));
+        this.intentButton.node.runAction(cc.moveBy(1, cc.v2(600, 0)));
         cc.tween(this.goButton.node)
             .to(1, { opacity: 0 })
             .start();
