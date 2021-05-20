@@ -11,6 +11,8 @@ cc.Class({
         level2Button: cc.Button,
         level3Button: cc.Button,
         index: 0,
+        level: 0,
+        isLock: true,
     },
 
     onLoad() {
@@ -25,7 +27,6 @@ cc.Class({
     },
 
     goToHome() {
-        // this.player.runAction(cc.moveTo(2, cc.v2(0, 1000)));
         cc.director.loadScene('Menu', (() => {
             mEmitter.instance.emit('changeScreen', 'home');
             let getIndex = cc.director.getScene().getChildByName('Canvas').getChildByName('HomeNode').getComponent('Home');
@@ -36,14 +37,20 @@ cc.Class({
     goToLevel1() {
         this.level1Button.interactable = false;
         this.player.runAction(cc.sequence(
-            cc.rotateTo(0.5, 335-180),
+            cc.moveTo(1, cc.v2(this.player.x, 1000)),
+            cc.moveTo(0.2, cc.v2(this.level1Button.node.x, 1000)),
+            cc.rotateTo(0.5, 180),
             cc.spawn(
                 cc.scaleTo(1, 0.8),
                 cc.moveTo(1, cc.v2(this.level1Button.node.x, this.level1Button.node.y))
             ),
             cc.rotateTo(1, 0)
         ));
+        this.level = 1;
         this.level2Button.interactable = true;
+        // if (this.isLock === false) {
+        //     this.level2Button.interactable = true;
+        // }
     },
 
     goToLevel2() {
@@ -56,6 +63,12 @@ cc.Class({
             ),
             cc.rotateTo(1, 0)
         ));
+        this.level = 2;
+        this.level1Button.interactable = true;
+        this.level3Button.interactable = true;
+        // if (this.isLock === false) {
+        //     this.level3Button.interactable = true;
+        // }
     },
 
     goToLevel3() {
@@ -68,6 +81,7 @@ cc.Class({
             ),
             cc.rotateTo(1, 0)
         ));
+        this.level = 3;
     },
 
 
@@ -76,8 +90,12 @@ cc.Class({
         this.player.y = 1000;
         cc.tween(this.player)
             .to(0.1, { angle: 180 })
-            .to(2, { position: cc.v2(this.level1Button.node.x, this.level1Button.node.y)})
+            .to(2, { position: cc.v2(this.level1Button.node.x, this.level1Button.node.y) })
             .to(1.5, { angle: 360 })
+            .delay(1)
+            .call(() => {
+                this.level1Button.interactable = true;
+            })
             .start();
     },
 
