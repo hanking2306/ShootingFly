@@ -5,8 +5,6 @@ cc.Class({
     properties: {
         bg1: cc.Node,
         bg2: cc.Node,
-        round: cc.Node,
-        ball: cc.Node,
     },
 
     onLoad () {
@@ -26,12 +24,5 @@ cc.Class({
         if(this.bg2.y <= -1280) {
             this.bg2.y = 1280;
         }
-<<<<<<< HEAD
-        this.button.angle -= 200 * dt;
-    },
-=======
-        this.round.angle -= 200 * dt;
-        this.ball.angle += 200 * dt;
     },  
->>>>>>> Vuong
 });

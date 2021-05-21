@@ -12,26 +12,37 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        index: 0,
-        player: {
-            default: [],
-            type: cc.Prefab,
-        }
+        // foo: {
+        //     // ATTRIBUTES:
+        //     default: null,        // The default value will be used only when the component attaching
+        //                           // to a node for the first time
+        //     type: cc.SpriteFrame, // optional, default is typeof default
+        //     serializable: true,   // optional, default is true
+        // },
+        // bar: {
+        //     get () {
+        //         return this._bar;
+        //     },
+        //     set (value) {
+        //         this._bar = value;
+        //     }
+        // },
     },
 
-    setIndex(value){
-        this.index = value;
-    },
+    // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
-        
-    },
-
+<<<<<<< HEAD:assets/Script/play.js
     start () {
         let player = cc.instantiate(this.player[this.index]);
         player.width = 100;
         player.height = 100;
         this.node.addChild(player);
+=======
+    // onLoad () {},
+
+    start () {
+
+>>>>>>> Phuc:assets/Script/Actor/Boss3.js
     },
 
     // update (dt) {},
