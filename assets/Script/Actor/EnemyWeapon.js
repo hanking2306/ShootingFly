@@ -33,12 +33,13 @@ cc.Class({
         this.interval = this.getRandom(1, 20);
     },
 
-    add(bulletPos){
+    add(bulletPos) {
         let bulletNode = cc.instantiate(this.bullet);
         bulletNode.active = true;
         bulletPos.subSelf(cc.Canvas.instance.node.position);
         bulletNode.position = bulletPos;
         bulletNode.parent = cc.Canvas.instance.node;
     },
+
     // update (dt) {},
 });

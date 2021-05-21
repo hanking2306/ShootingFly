@@ -24,7 +24,6 @@ cc.Class({
     onCollisionEnter(other, self) {
         if (other.node.group === 'enemy' || other.node.group === 'enemy_bullet') {
             this.die();
-            other.node.destroy();
         }
     },
 

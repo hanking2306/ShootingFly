@@ -3,7 +3,8 @@ cc.Class({
     extends: Enemy,
 
     properties: {
-        
+        interval: 3,
+        attackSpeed: 1,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -13,22 +14,18 @@ cc.Class({
     },
     
     onEnable() {
-        this.schedule(this.attack, 3);
+        this.schedule(this.attack, this.interval);
     },
     
     onDisable() {
-        this.unschedule();
-    },
-
-    onCollisionEnter() {
-
+        this.unschedule(this.attack);
     },
 
     attack() {
         let lastPos = this.node.y;
         cc.tween(this.node)
-            .to(0.5, {y: -600})
-            .to(0.5, {y: lastPos})
+            .to(this.attackSpeed, {y: -600})
+            .to(this.attackSpeed, {y: lastPos})
             .start();
     }
 

@@ -14,7 +14,7 @@ cc.Class({
     start() {
 
     },
-    
+
     update(dt) {
         let bulletPos = this.node.position;
         bulletPos.addSelf(this.speed.mul(dt));
@@ -30,7 +30,8 @@ cc.Class({
             this.node.destroy();
             return;
         }
-
+        this.node.scale += dt;
         this.node.position = bulletPos;
+
     }
 });
