@@ -165,7 +165,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 239.88903684828952
+      "z": 407.8979651824706
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -6671,7 +6671,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Score",
+    "_name": "Wave",
     "_objFlags": 0,
     "_parent": {
       "__id__": 129
@@ -6733,7 +6733,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Score",
+    "_name": "wave",
     "_objFlags": 0,
     "_parent": {
       "__id__": 144
@@ -7156,6 +7156,14 @@
     "homeButton": {
       "__id__": 139
     },
+    "levelLabel": {
+      "__id__": 142
+    },
+    "waveLabel": {
+      "__id__": 146
+    },
+    "level": 0,
+    "wave": 0,
     "_id": "71vC5VDjZMIYRndl94Nkjb"
   },
   {

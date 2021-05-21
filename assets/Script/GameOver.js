@@ -6,6 +6,10 @@ cc.Class({
     properties: {
         loseGame: cc.Node,
         homeButton: cc.Button,
+        levelLabel: cc.Label,
+        waveLabel: cc.Label,
+        level: 0,
+        wave: 0,
     },
 
     onLoad() {
@@ -19,12 +23,21 @@ cc.Class({
             .start()
     },
 
+    setLevel(value){
+        this.level = value;
+    },
+
+    setWave(value){
+        this.value = value;
+    },
+
     goToHome(){
         mEmitter.instance.emit('changeScreen', 'home');
     },
 
     start() {
-
+        this.levelLabel.string = "Level " + this.level;
+        this.waveLabel.string = this.wave;
     },
 
     // update (dt) {},
