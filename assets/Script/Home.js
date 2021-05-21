@@ -7,24 +7,29 @@ cc.Class({
         logo: cc.Node,
         bg1: cc.Node,
         bg2: cc.Node,
+        pageSpace: cc.PageView,
         settingButton: cc.Button,
-        hintButton: cc.Button,
+        intentButton: cc.Button,
         goButton: cc.Button,
         index: 0,
     },
 
     onLoad() {
         this.settingButton.node.on('click', this.goToSetting.bind(this));
-        this.hintButton.node.on('click', this.goToHint.bind(this));
+        this.intentButton.node.on('click', this.goToIntent.bind(this));
         this.goButton.node.on('click', this.goToLevel.bind(this));
+    },
+
+    setIndex(value) {
+        this.index = value;
     },
 
     goToSetting() {
         mEmitter.instance.emit('changeScreen', 'setting');
     },
 
-    goToHint() {
-        mEmitter.instance.emit('changeScreen', 'hint');
+    goToIntent() {
+        mEmitter.instance.emit('changeScreen', 'intent');
     },
 
     dashSpcace(evt) {
@@ -32,8 +37,10 @@ cc.Class({
     },
 
     goToLevel() {
-        this.settingButton.node.runAction(cc.moveTo(0.5, cc.v2(-600, 0)));
-        this.hintButton.node.runAction(cc.moveTo(0.5, cc.v2(600, 0)));
+        this.goButton.interactable = false;
+        this.pageSpace.node.children[1].active = false;
+        this.settingButton.node.runAction(cc.moveBy(1, cc.v2(-600, 0)));
+        this.intentButton.node.runAction(cc.moveBy(1, cc.v2(600, 0)));
         cc.tween(this.goButton.node)
             .to(1, { opacity: 0 })
             .start();
@@ -57,10 +64,11 @@ cc.Class({
     },
 
     start() {
-
+        // this.pageSpace.scrollToPage = this.index;
+        this.pageSpace.setCurrentPageIndex = this.index;
     },
 
     update(dt) {
-
+        
     },
 });

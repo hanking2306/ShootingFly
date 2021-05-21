@@ -1,6 +1,10 @@
 {
   "ver": "2.3.3",
+<<<<<<< HEAD:assets/Textures/Button/_Pngtree_color_fantasy_space_planet_3568290-removebg-preview_05.png.meta
   "uuid": "ae60d221-5fc8-456e-8632-ef18d2f333e5",
+=======
+  "uuid": "a536c2ff-6cdf-4055-ae7d-331f611ced4b",
+>>>>>>> Vuong:assets/Textures/Button/next.png.meta
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -11,12 +15,18 @@
   "subMetas": {
     "_Pngtree_color_fantasy_space_planet_3568290-removebg-preview_05": {
       "ver": "1.0.4",
+<<<<<<< HEAD:assets/Textures/Button/_Pngtree_color_fantasy_space_planet_3568290-removebg-preview_05.png.meta
       "uuid": "c412bbb2-2788-4af8-aa03-54f0486c4806",
       "rawTextureUuid": "ae60d221-5fc8-456e-8632-ef18d2f333e5",
+=======
+      "uuid": "ea933a8d-c7b3-4c60-a1cf-53d37466426c",
+      "rawTextureUuid": "a536c2ff-6cdf-4055-ae7d-331f611ced4b",
+>>>>>>> Vuong:assets/Textures/Button/next.png.meta
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
       "offsetX": 0,
+<<<<<<< HEAD:assets/Textures/Button/_Pngtree_color_fantasy_space_planet_3568290-removebg-preview_05.png.meta
       "offsetY": 0,
       "trimX": 0,
       "trimY": 0,
@@ -24,6 +34,15 @@
       "height": 123,
       "rawWidth": 123,
       "rawHeight": 123,
+=======
+      "offsetY": -2,
+      "trimX": 0,
+      "trimY": 4,
+      "width": 339,
+      "height": 271,
+      "rawWidth": 339,
+      "rawHeight": 275,
+>>>>>>> Vuong:assets/Textures/Button/next.png.meta
       "borderTop": 0,
       "borderBottom": 0,
       "borderLeft": 0,
